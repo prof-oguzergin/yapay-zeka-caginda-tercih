@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yapay Zeka Çağında Üniversite Tercihi · Prof. Dr. Oğuz Ergin</title>
+<meta name="description" content="Yapay zeka çağında hangi bölümlerden uzak durmalı, nasıl doğru tercih yapmalı? Öğrenci adayları için pusula.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#121829; --ink2:#1d2740; --navy:#2b3a63;
+    --paper:#ffffff; --cream:#f6f4ef; --soft:#eef1f6;
+    --text:#1f2733; --muted:#6b7484; --line:#e6e9f0;
+    --risk:#e23744; --risk-t:#fdecec; --safe:#13886b; --safe-t:#e4f3ee; --gold:#e0a23a;
+    --radius:18px; --sh:0 18px 44px rgba(18,24,41,.14); --sh-sm:0 8px 22px rgba(18,24,41,.08);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,Segoe UI,Arial,sans-serif;color:var(--text);background:var(--paper);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.13;letter-spacing:-.4px;color:var(--ink)}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 26px}
+  a{text-decoration:none;color:inherit}
+  .kick{color:var(--risk);font-weight:600;font-size:13.5px;letter-spacing:1.6px;text-transform:uppercase}
+
+  nav{position:sticky;top:0;z-index:50;background:rgba(18,24,41,.86);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Playfair Display',serif;font-weight:800;font-size:20px;color:#fff}
+  .brand .dot{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--risk),#a3232c);display:grid;place-items:center;color:#fff;font-size:18px}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-weight:500;font-size:14.5px;color:rgba(255,255,255,.78);transition:.2s}
+  .nav-links a:hover{color:#fff}
+  .btn{display:inline-flex;align-items:center;gap:9px;border:none;cursor:pointer;font-family:inherit;font-weight:600;font-size:15px;padding:13px 26px;border-radius:999px;transition:transform .2s, box-shadow .2s}
+  .btn-p{background:linear-gradient(135deg,var(--risk),#b6262f);color:#fff;box-shadow:0 10px 24px rgba(194,40,48,.32)}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(194,40,48,.42)}
+  .btn-g{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.28)}
+  .btn-g:hover{border-color:#fff}
+
+  .hero{position:relative;overflow:hidden;color:#fff;background:radial-gradient(1000px 460px at 82% -10%,rgba(226,55,68,.34),transparent 58%),radial-gradient(800px 420px at 8% 110%,rgba(19,136,107,.30),transparent 55%),linear-gradient(180deg,var(--ink),#0e1322)}
+  .hero-in{padding:84px 0 92px;max-width:860px}
+  .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.10);color:#fff;font-weight:600;font-size:13.5px;padding:8px 16px;border-radius:999px;margin-bottom:24px;border:1px solid rgba(255,255,255,.14)}
+  .pill .pulse{width:8px;height:8px;border-radius:50%;background:var(--risk);animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(226,55,68,.55)}70%{box-shadow:0 0 0 11px rgba(226,55,68,0)}100%{box-shadow:0 0 0 0 rgba(226,55,68,0)}}
+  .hero h1{font-size:62px;font-weight:900;color:#fff}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero .lead{font-size:20px;color:rgba(255,255,255,.82);margin:24px 0 34px;max-width:640px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .author{display:flex;align-items:center;gap:13px;margin-top:38px}
+  .author .av{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--ink2));display:grid;place-items:center;color:#fff;font-weight:600;border:1px solid rgba(255,255,255,.18)}
+  .author b{color:#fff;font-weight:600;font-size:15px;display:block}
+  .author span{color:rgba(255,255,255,.6);font-size:13px}
+
+  section{padding:90px 0}
+  .head{max-width:680px;margin:0 auto 56px;text-align:center}
+  .head h2{font-size:40px;font-weight:800;margin:12px 0 14px}
+  .head p{color:var(--muted);font-size:17.5px}
+
+  .thesis{background:var(--cream)}
+  .thesis-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:46px;align-items:center}
+  .thesis h2{font-size:38px;font-weight:800;margin-bottom:18px}
+  .thesis p{font-size:18px;color:#444c59;max-width:540px}
+  .pillars{display:grid;gap:16px}
+  .pillar{background:#fff;border-radius:14px;padding:22px 24px;box-shadow:var(--sh-sm);display:flex;gap:16px;align-items:flex-start;border:1px solid var(--line)}
+  .pillar .pi{width:46px;height:46px;border-radius:12px;flex:none;display:grid;place-items:center;background:var(--safe-t);color:var(--safe)}
+  .pillar h4{font-family:'Inter';font-size:16px;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .pillar p{font-size:14px;color:var(--muted);margin:0}
+
+  .crit{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .ccard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:32px 28px;box-shadow:var(--sh-sm);transition:transform .25s,box-shadow .25s;position:relative}
+  .ccard:hover{transform:translateY(-8px);box-shadow:var(--sh)}
+  .ccard .no{position:absolute;top:22px;right:26px;font-family:'Playfair Display',serif;font-weight:800;font-size:46px;color:var(--risk-t)}
+  .ccard .ci{width:56px;height:56px;border-radius:15px;display:grid;place-items:center;background:var(--risk-t);color:var(--risk);margin-bottom:20px}
+  .ccard h3{font-size:21px;margin-bottom:9px}
+  .ccard p{color:var(--muted);font-size:15px}
+
+  .risk-wrap{background:var(--ink);color:#fff}
+  .risk-wrap .head h2{color:#fff}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+  .panel{background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:30px}
+  .panel .ph{display:flex;align-items:center;gap:11px;margin-bottom:8px}
+  .panel .ph .badge{font-size:12px;font-weight:600;padding:5px 12px;border-radius:999px;background:rgba(226,55,68,.18);color:#ff9aa1}
+  .panel h3{color:#fff;font-size:23px;margin-bottom:18px}
+  .row{display:flex;gap:14px;padding:14px 0;border-top:1px solid rgba(255,255,255,.08)}
+  .row .ri{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;background:rgba(226,55,68,.16);color:#ff9aa1}
+  .row b{color:#fff;font-weight:600;font-size:15.5px;display:block;margin-bottom:2px}
+  .row span{color:rgba(255,255,255,.62);font-size:13.5px}
+
+  .safe-wrap{background:var(--safe-t)}
+  .safe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .scard{background:#fff;border-radius:14px;padding:26px 24px;box-shadow:var(--sh-sm);transition:transform .25s,box-shadow .25s}
+  .scard:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+  .scard .si{width:50px;height:50px;border-radius:13px;display:grid;place-items:center;background:var(--safe-t);color:var(--safe);margin-bottom:16px}
+  .scard h4{font-family:'Inter';font-size:17px;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .scard p{color:var(--muted);font-size:14px}
+
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:48px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;text-align:center;box-shadow:var(--sh-sm)}
+  .stat .num{font-family:'Playfair Display',serif;font-weight:800;font-size:46px;color:var(--risk)}
+  .stat .lbl{color:var(--muted);font-size:14.5px;margin-top:4px}
+  .case{background:var(--risk-t);border-radius:var(--radius);padding:38px 36px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+  .case h3{font-size:27px;margin-bottom:8px}
+  .case .sub{color:#8a3036;font-weight:600;font-size:14.5px;margin-bottom:14px}
+  .case p{color:#5e2a2e;font-size:16px}
+  .case .ironi{background:#fff;border-radius:14px;padding:24px;box-shadow:var(--sh-sm)}
+  .case .ironi b{color:var(--risk)}
+
+  .mistakes{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:48px}
+  .mcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--sh-sm);position:relative;transition:transform .25s,box-shadow .25s}
+  .mcard:hover{transform:translateY(-6px);box-shadow:var(--sh)}
+  .mcard .mn{position:absolute;top:20px;right:24px;font-family:'Playfair Display',serif;font-weight:800;font-size:40px;color:var(--risk-t)}
+  .mcard .mi{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:var(--ink);color:#fff;margin-bottom:16px}
+  .mcard h4{font-family:'Inter';font-size:17.5px;font-weight:600;color:var(--ink);margin-bottom:7px;max-width:84%}
+  .mcard p{color:var(--muted);font-size:14.5px}
+
+  .compass{background:var(--ink);color:#fff}
+  .compass .head h2{color:#fff}
+  .clist{max-width:760px;margin:0 auto;display:grid;gap:16px}
+  .citem{display:flex;gap:18px;align-items:flex-start;background:var(--ink2);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:22px 26px}
+  .citem .cc{width:40px;height:40px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--safe);color:#fff;font-weight:700}
+  .citem b{color:#fff;font-weight:600;font-size:17px;display:block;margin-bottom:3px}
+  .citem span{color:rgba(255,255,255,.66);font-size:15px}
+
+  .final{background:linear-gradient(135deg,var(--ink2),var(--ink));text-align:center;color:#fff;padding:96px 0}
+  .final h2{font-size:46px;font-weight:900;color:#fff;max-width:880px;margin:0 auto 18px}
+  .final h2 em{font-style:normal;color:var(--risk)}
+  .final p{color:rgba(255,255,255,.8);font-size:19px;max-width:620px;margin:0 auto 30px}
+
+  footer{background:#0c1020;color:rgba(255,255,255,.6);padding:46px 0;text-align:center}
+  footer .fb{font-family:'Playfair Display',serif;font-weight:800;font-size:20px;color:#fff;margin-bottom:8px}
+  footer p{font-size:14px;max-width:560px;margin:0 auto}
+  footer .small{margin-top:18px;font-size:12.5px;opacity:.6}
+
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:880px){
+    .nav-links{display:none}
+    .hero h1{font-size:42px}
+    .thesis-grid,.crit,.two,.safe-grid,.stats,.case,.mistakes{grid-template-columns:1fr}
+    .head h2{font-size:30px}.final h2{font-size:32px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-in">
+    <div class="brand"><span class="dot">★</span>YZ Çağında Tercih</div>
+    <div class="nav-links">
+      <a href="#olcut">Ölçütler</a>
+      <a href="#riskli">Riskli bölümler</a>
+      <a href="#yok">YÖK'ün hatası</a>
+      <a href="#pusula">Doğrusu</a>
+    </div>
+    <button class="btn btn-p" onclick="document.getElementById('pusula').scrollIntoView()">Nasıl seçmeli?</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-in">
+    <span class="pill"><span class="pulse"></span> YKS tercih rehberi · 2026</span>
+    <h1>Yapay zeka çağında <em>üniversite tercihi</em></h1>
+    <p class="lead">Herkes "hangi bölüm para kazandırır" diye soruyor. Asıl soru şu: yapay zeka çağında hangi bölüm seni işsiz bırakır? Hangisinden uzak durmalı, nasıl doğru seçmeli?</p>
+    <div class="hero-cta">
+      <button class="btn btn-p" onclick="document.getElementById('riskli').scrollIntoView()">Riskli bölümleri gör</button>
+      <button class="btn btn-g" onclick="document.getElementById('olcut').scrollIntoView()">Önce ölçütler</button>
+    </div>
+    <div class="author">
+      <div class="av">OE</div>
+      <div><b>Prof. Dr. Oğuz Ergin</b><span>Bilgisayar Mühendisliği · Mikroişlemci Mimarileri</span></div>
+    </div>
+  </div>
+</header>
+
+<section class="thesis reveal">
+  <div class="wrap thesis-grid">
+    <div>
+      <span class="kick">Önce tek bir gerçek</span>
+      <h2>Diploma artık tek başına kalkan değil</h2>
+      <p>Bir bölüm seni iki şeyden biriyle korur: yasal bir unvanla ya da taklidi zor, derin bir teknik birikimle. İkisi de yoksa, işini yapay zekayı iyi kullanan herhangi bir genelci devralır.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span><div><h4>Lisans / Unvan</h4><p>Hekim, hukukçu, mühendis: yasa girişe engel koyar.</p></div></div>
+      <div class="pillar"><span class="pi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></span><div><h4>Derin teknik birikim</h4><p>Yıllarca kurulan, hızla taklit edilemeyen uzmanlık.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="olcut" class="reveal">
+  <div class="wrap">
+    <div class="head"><span class="kick">Ölçüt</span><h2>Bir bölüm neden "kaçınılacak" sayılır?</h2><p>Tek başına "yapay zeka bunu yapar" yetmez. Üç ölçüt birlikte tutuyorsa risk yüksektir.</p></div>
+    <div class="crit">
+      <div class="ccard"><span class="no">1</span><span class="ci"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="14" height="11" rx="2"/><path d="M9 7V4h6v3M9 13h.01M15 13h.01"/></svg></span><h3>Çıktı otomatikleşiyor</h3><p>Mezunun ürettiği temel iş (metin, çeviri, taslak tasarım, rutin hesap) bugün bir modelin saniyede ürettiği şey.</p></div>
+      <div class="ccard"><span class="no">2</span><span class="ci"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0"/></svg></span><h3>Giriş engeli düşük</h3><p>Programa özgü, taklidi zor teknik birikim yoksa, yapay zekayı iyi kullanan genelci o işi devralır.</p></div>
+      <div class="ccard"><span class="no">3</span><span class="ci"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M15 11a3 3 0 1 0-2-5.2M3 20a6 6 0 0 1 12 0M15 14a6 6 0 0 1 6 6"/></svg></span><h3>Pazar zaten doygun</h3><p>Mezun fazlası ve düşük ücret baskısı varken otomasyon bardağı taşırır.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="riskli" class="risk-wrap reveal">
+  <div class="wrap">
+    <div class="head"><span class="kick" style="color:#ff9aa1">Kaçınılacaklar</span><h2>Yapay zekanın bastırdığı bölümler</h2><p style="color:rgba(255,255,255,.72)">Alanların tamamı yok olmuyor; ama giriş seviyesi iş eriyor, pazar daralıyor.</p></div>
+    <div class="two">
+      <div class="panel">
+        <div class="ph"><span class="badge">En yüksek risk</span></div>
+        <h3>Çıktının kendisi otomatikleşiyor</h3>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Mütercim-Tercümanlık / Çeviribilim</b><span>Makine çevirisi temel işi devraldı; yeminli ve ardıl sözlü çeviri kalıyor.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Halkla İlişkiler ve Tanıtım</b><span>Bülten, içerik ve sosyal medya metninin gövdesi otomatikleşiyor.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Gazetecilik / Radyo-TV Programcılığı</b><span>Rutin haber derleme ve metin; saha muhabirliği ayrı tutulur.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Reklamcılık ve Grafik Tasarım (önlisans)</b><span>Şablon görsel, afiş ve banner üretiminde üretici modeller rakip.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Fotoğrafçılık / Dijital İçerik (vasıfsız kısım)</b><span>Üretici görüntü ve şablon içerik baskısı altında.</span></div></div>
+      </div>
+      <div class="panel">
+        <div class="ph"><span class="badge">Yüksek risk</span></div>
+        <h3>Düşük giriş engeli + doygun pazar</h3>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>İşletme & İktisat (genel)</b><span>Ayırt edici beceri katmazsan diploma korumuyor; mezun fazlası.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Büro Yönetimi / Yönetici Asistanlığı</b><span>Klasik sekretarya işleri otomasyonun tam hedefinde.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Çağrı Merkezi Hizmetleri</b><span>Sesli yapay zeka bu işi doğrudan ikame ediyor.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Bankacılık ve Sigortacılık (önlisans)</b><span>Şube ve operasyon işleri hızla daralıyor.</span></div></div>
+        <div class="row"><span class="ri"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></span><div><b>Muhasebe (rutin) · Bilgi ve Belge Yönetimi</b><span>Defter/fiş ve arama-erişim otomatik; mali müşavir unvanı korunaklı.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="safe-wrap reveal">
+  <div class="wrap">
+    <div class="head"><span class="kick" style="color:var(--safe)">Yanılgı</span><h2>Riskli sanılan ama korunaklı</h2><p>İnsan teması, sorumluluk ya da unvan bu bölümleri koruyor.</p></div>
+    <div class="safe-grid">
+      <div class="scard"><span class="si"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3v4a4 4 0 0 0 8 0V3M12 11v4a5 5 0 0 0 5 5M7 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></svg></span><h4>Hekimlik, diş, hemşirelik, fizyoterapi</h4><p>Fiziksel sorumluluk ve lisans koruyor.</p></div>
+      <div class="scard"><span class="si"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M5 21h14M7 7h10l-2 6H9zM12 3l5 4M12 3L7 7"/></svg></span><h4>Hukuk</h4><p>Baro ve unvan engeli güçlü; yapay zeka araç, ikame değil.</p></div>
+      <div class="scard"><span class="si"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="8" height="8" rx="1"/><path d="M9 4v4M15 4v4M9 16v4M15 16v4M4 9h4M4 15h4M16 9h4M16 15h4"/></svg></span><h4>Mühendislik (elektrik-elektronik, bilgisayar)</h4><p>Yapay zekayı kullanan, tasarlayan taraf burada.</p></div>
+      <div class="scard"><span class="si"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18v11H3zM3 16l4 3M21 16l-4 3M12 8v5"/></svg></span><h4>Öğretmenlik</h4><p>İnsan teması ve güven ilişkisi taşıyan iş.</p></div>
+      <div class="scard"><span class="si"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21c-3-2-5-5-5-9a6 6 0 0 1 12 0c0 .7-.1 1.3-.3 2M14 21v-3a2 2 0 0 1 2-2h1"/></svg></span><h4>Psikoloji & Sosyal Hizmet</h4><p>Empati ve sorumluluk gerektiren, ikame edilmesi zor alan.</p></div>
+      <div class="scard" style="display:grid;place-items:center;background:var(--safe);color:#fff"><div style="text-align:center"><div style="font-family:'Playfair Display',serif;font-weight:800;font-size:30px">Ortak payda</div><p style="color:rgba(255,255,255,.85);font-size:14.5px;margin-top:6px">Sorumluluk, unvan ya da insan teması.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="yok" class="reveal">
+  <div class="wrap">
+    <div class="head"><span class="kick">Peki YÖK ne yaptı?</span><h2>Yeni açılan bölümler ve büyük hata</h2><p>2024'te yapay zeka dalgasına yetişmek için yeni iki yıllık programlar açıldı. Biri tam otomasyonun göbeğinde.</p></div>
+    <div class="stats">
+      <div class="stat"><div class="num" data-to="12" data-suf=" program">0</div><div class="lbl">2024'te açılan yeni dijital önlisans</div></div>
+      <div class="stat"><div class="num" data-from="6" data-to="21" data-prefix="6 → ">0</div><div class="lbl">Ön-Yüz bölümünün yayıldığı üniversite (2024 → 2025)</div></div>
+      <div class="stat"><div class="num" data-static="299-360">299-360</div><div class="lbl">Taban puan bandı; kimi kontenjan "Dolmadı"</div></div>
+    </div>
+    <div class="case">
+      <div>
+        <span class="kick">Vaka analizi</span>
+        <h3>Ön-Yüz Yazılım Geliştirme</h3>
+        <div class="sub">(Front-end Developer) · 2 yıllık önlisans</div>
+        <p>Bir meslek ilanının başlığı, iki yıllık bir diploma adına dönüştü. Üstelik "arka yüz" ayrı bir diploma olarak bölündü.</p>
+      </div>
+      <div class="ironi">
+        <p>Ön yüz (front-end), bugün <b>yapay zekanın en hızlı otomatikleştirdiği</b> alanlardan biri. v0, Cursor, Lovable gibi araçlar ekran tasarımını ve kodunu saniyede üretiyor. Yeni mezunu, üretici modellerin doğrudan bastırdığı bir giriş işine hazırlıyoruz.</p>
+      </div>
+    </div>
+    <div class="mistakes">
+      <div class="mcard"><span class="mn">1</span><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12l-8 8-9-9V3h8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></span><h4>Bölümü bir iş unvanına göre adlandırmak</h4><p>"Front-end Developer" bir meslek tanımı, bir eğitim disiplini değil. Unvan değişince diploma ortada kalır.</p></div>
+      <div class="mcard"><span class="mn">2</span><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7c3 2 5 2 9 0s6-2 9 0M3 13c3 2 5 2 9 0s6-2 9 0M3 19c3 2 5 2 9 0s6-2 9 0"/></svg></span><h4>Önlisans derinliği yetersiz</h4><p>İki yıllık sığ eğitim, tam da yapay zekanın ilk ikame ettiği "düşük engelli" işgücünü üretiyor.</p></div>
+      <div class="mcard"><span class="mn">3</span><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span><h4>Geç ve tepkisel zamanlama</h4><p>2024 modasına göre açıldı; mezun 2026-27'de daralan giriş seviyesi pazara çıkacak.</p></div>
+      <div class="mcard"><span class="mn">4</span><span class="mi"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H5v6M13 20h6v-6M4 12h6v8M14 4h6v6"/></svg></span><h4>Temeli parçalamak</h4><p>Ön yüz ve arka yüzü ayrı diplomalara bölmek yerine sağlam bir bilgisayar temeli öğretilmeli.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pusula" class="compass reveal">
+  <div class="wrap">
+    <div class="head"><span class="kick" style="color:var(--safe)">Doğrusu ne olmalı</span><h2>Öğrenci adayı için pusula</h2><p style="color:rgba(255,255,255,.72)">Hangi bölüme girersen gir, bu dört ilkeyi tut.</p></div>
+    <div class="clist">
+      <div class="citem"><span class="cc">1</span><div><b>Temel öğreten, geniş bölüm seç</b><span>Mühendislik ve sayısal temel; tek araca değil, kalıcı beceriye oyna.</span></div></div>
+      <div class="citem"><span class="cc">2</span><div><b>Tek iş unvanına kilitli bölümden kaç</b><span>Adı bir meslek ilanı gibi olan programlar, o meslek değişince seni yolda bırakır.</span></div></div>
+      <div class="citem"><span class="cc">3</span><div><b>Yapay zekayı kullanan ilk yüzde 10'a oyna</b><span>Aynı sınıfta aracı en iyi kullanan kazanır; gerisi sıkışır.</span></div></div>
+      <div class="citem"><span class="cc">4</span><div><b>Diploma için değil, uzmanlık için gir</b><span>Taklidi zor, sorumluluk taşıyan bir derinlik hedefle.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="final reveal">
+  <div class="wrap">
+    <h2>Bölüm "kötü" değil. Diploma artık tek başına <em>yetmiyor</em>.</h2>
+    <p>Aynı sınıfta yapay zekayı en iyi kullanan ilk yüzde 10 kazanır. Tercihini buna göre yap.</p>
+    <button class="btn btn-p" onclick="document.getElementById('olcut').scrollIntoView()">Başa dön, ölçütlere bak</button>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fb">Yapay Zeka Çağında Üniversite Tercihi</div>
+    <p>Öğrenci adayları için hazırlanmış bir tercih rehberi. Hazırlayan: Prof. Dr. Oğuz Ergin.</p>
+    <div class="small">© 2026 · Bu sayfa, canlı yayında yapay zeka ile dakikalar içinde tasarlanıp yayımlanmıştır.</div>
+  </div>
+</footer>
+
+<script>
+  const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  function counters(){
+    document.querySelectorAll('.num').forEach(el=>{
+      if(el.dataset.static)return;
+      const to=parseFloat(el.dataset.to), from=parseFloat(el.dataset.from||0);
+      const suf=el.dataset.suf||'', pre=el.dataset.prefix||'';
+      const t0=performance.now(), dur=1500;
+      function step(t){
+        const p=Math.min((t-t0)/dur,1), e=1-Math.pow(1-p,3), v=Math.round(from+(to-from)*e);
+        el.textContent=pre+v+suf;
+        if(p<1)requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  const sIo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){counters();sIo.disconnect()}})},{threshold:.4});
+  const sEl=document.querySelector('.stats'); if(sEl) sIo.observe(sEl);
+</script>
+</body>
+</html>
